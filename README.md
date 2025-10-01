@@ -24,7 +24,7 @@ SELECT COUNT(total_sale) AS num_transactions
 FROM retails_sales
 ...
 
-** SELECT TOTAL NUMBER OF UNIQUE CUSTOMERS WE HAVE
+** SELECT TOTAL NUMBER OF UNIQUE CUSTOMERS WE HAVE:
 ...sql
 SELECT COUNT(DISTINCT customer_id) AS total_customers
 FROM retails_sales...
@@ -55,7 +55,7 @@ select * from retails_sales where category = 'clothing'
   group by category
   order by total_sales desc...
   
-  **Q4 FIND THE AVERAGE AGE OF CUSTOMERS WHO PURCHASED ITEMS FROM THE 'BEAUTY' CATEGORY
+  **Q4 FIND THE AVERAGE AGE OF CUSTOMERS WHO PURCHASED ITEMS FROM THE 'BEAUTY' CATEGORY:
 ...sql
 select round(avg(age),1)as avg_age from retails_sales where category = 'beauty'...
 
@@ -63,13 +63,13 @@ select round(avg(age),1)as avg_age from retails_sales where category = 'beauty'.
 ...sql
 select * from retails_sales where total_sale >1000...
 
-**Q6 FIND THE TOTAL NUMBER OF TRANSACTIONS MADE BY EACH GENDER IN EACH CATEGORY
+**Q6 FIND THE TOTAL NUMBER OF TRANSACTIONS MADE BY EACH GENDER IN EACH CATEGORY:
 ...sql
 select category, gender ,count(*)as orders from retails_sales
 group by category , gender 
 order by gender desc...
 
-**Q7 CALCULATE THE AVERAGE SALE FOR EACH MONTH. FIND OUT THE BEST SELLING MONTH IN EACH YEAR
+**Q7 CALCULATE THE AVERAGE SALE FOR EACH MONTH. FIND OUT THE BEST SELLING MONTH IN EACH YEAR:
 ...sql
 select year,month,round(avg_sal,2)as avg_sal from(
 select year(sale_date)as year,
@@ -86,9 +86,9 @@ where rnk = 1...
 select customer_id,sum(total_sale)as sales
 from retails_sales 
 group by customer_id order by sales desc
-limit 5'''
+limit 5...
 
-** Q9 NO OF PURCHASES BY EACH CUSTOMER FROM EACH CATEGORY
+** Q9 NO OF PURCHASES BY EACH CUSTOMER FROM EACH CATEGORY:
 ...sql
 select customer_id ,category,count(*)as no_of_purchases
 from retails_sales
